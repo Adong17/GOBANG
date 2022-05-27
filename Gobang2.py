@@ -434,13 +434,11 @@ def whoStart(px, py):
 def simrecvmes(connfd):
 
     data = connfd.recv(1024)
-    print(data.decode())
     return float(data.decode())
 
 def simsendmes(sendbuf,connfd):
 
     connfd.send(str(sendbuf).encode()) # 发送字节串
-    print(sendbuf)
 
 def main(tcp_socket):
     global start

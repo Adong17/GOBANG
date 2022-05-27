@@ -430,13 +430,11 @@ def whoStart(p):
 def simrecvmes(connfd):
 
     data = connfd.recv(1024)
-    print(data.decode())
     return int(data.decode())
 
 def simsendmes(sendbuf,connfd):
 
     connfd.send(str(sendbuf).encode()) # 发送字节串
-    print(sendbuf)
 
 def main(connfd):
     global start

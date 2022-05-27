@@ -45,7 +45,7 @@ def main():
         recvmes = tcpsendmess(sendbuf, address, tcp_socket)
         # simsendmes("明白了", tcp_socket)
         Gobang1.main(tcp_socket)
-
+        tcp_socket.close()
 
 
 

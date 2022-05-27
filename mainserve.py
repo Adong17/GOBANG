@@ -52,17 +52,19 @@ def tcpsendmess(sendbuf,connfd):
 
 
 def main():
-    udpsendmes('欢迎来到孤独棋社，这里提供与人机对弈的五子棋，若想与服务器对弈，请与我连线,若想下棋，请通过TCP与我连线,端口号为7789')
+    udpsendmes('欢迎来到AIGoBang，这里提供与人机对弈的五子棋，,若想下棋，请与我连线，通过TCP与我连线,端口号为7789，发送‘我想与你连线’消息')
     recvmes, connfd = recvmess()
 
 
     if recvmes == "我想与你连线":
-        sendmes = input("输入消息为：")
+        sendmes = ("收到连线申请，即将开始人机对弈")
         simsendmes(sendmes, connfd)
         # recvmes, connfd = simrecvmes(connfd)
         Gobang2.main(connfd)
+        tcp_socket.close()
     else:
         print('未连接成功，继续发送广播消息')
+        udpsendmes('欢迎来到孤独棋社，这里提供与人机对弈的五子棋，若想与服务器对弈，请与我连线,若想下棋，请通过TCP与我连线,端口号为7789')
 
 if __name__ == '__main__':
     main()
